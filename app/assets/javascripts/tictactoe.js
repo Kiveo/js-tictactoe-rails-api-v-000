@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 var board = [];
+=======
+// var squares = [] //need to declare? test seems to use.
+// var squares = $('td').text
+var board = [];
+var turnCount = 0;
+>>>>>>> 7dd7e97a129d445ef921b05a2c8ae563460d801b
 var turn = 0;
 var gameId = 0;
 
@@ -52,7 +59,11 @@ function checkWinner() {
     board[index] = oldVal;
   })
   winCombos.forEach(function(combo) { //each combo is a 3 part array item eg: [ [0,1,2] ]
+<<<<<<< HEAD
     if ((board[combo[0]] == board[combo[1]]) && (board[combo[1]] == board[combo[2]]) && (board[combo[0]] !== "")){
+=======
+    if (board[combo[0]] == board[combo[1]] && board[combo[1]] == board[combo[2]] && board[combo[0]] !== ""){
+>>>>>>> 7dd7e97a129d445ef921b05a2c8ae563460d801b
       winner = true;
       let token = board[combo[0]]
       setMessage(`Player ${board[combo[0]]} Won!`);
@@ -62,6 +73,7 @@ function checkWinner() {
   return winner;
 }
 
+<<<<<<< HEAD
 function resetBoard() {
   turn = 0;
   $('td').empty();
@@ -117,3 +129,17 @@ function loadGame(gameid) {
       checkWinner();
   });
 };
+=======
+function doTurn(square) {
+updateState(square)
+turn++;
+if (checkWinner()) {
+    saveGame()
+    resetBoard()
+} else if (turn === 9) {
+    setMessage('Tie game.')
+    saveGame()
+    resetBoard()
+}
+}
+>>>>>>> 7dd7e97a129d445ef921b05a2c8ae563460d801b
